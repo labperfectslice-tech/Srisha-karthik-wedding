@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7b1725" />
+  <meta
+    name="description"
+    content="Wedding invitation of Sirisha and Karthik — 30 August 2026"
+  />
+  <title>Sirisha ♥ Karthik | Wedding Invitation</title>
+
+  <style>
+    /* =========================================================
+       SIRISHA & KARTHIK WEDDING INVITATION
+       Single-file website: HTML + CSS + JavaScript
+       ========================================================= */
+
+    :root {
+      --maroon: #741827;
+      --deep-maroon: #4a0d19;
+      --red: #a52b38;
+      --gold: #d9a441;
+      --light-gold: #f3d18a;
+      --cream: #fff8e8;
+      --paper: #fffaf0;
+      --green: #315b42;
+      --text: #40251f;
+      --shadow: 0 18px 50px rgba(74, 13, 25, 0.16);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(217, 164, 65, .11) 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, rgba(165, 43, 56, .08) 0 2px, transparent 3px),
+        var(--cream);
+      background-size: 34px 34px, 46px 46px, auto;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(217, 164, 65, .26);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: 10%;
+      left: -110px;
+      box-shadow: 0 0 0 18px rgba(217, 164, 65, .08), 0 0 0 36px rgba(217, 164, 65, .05);
+    }
+
+    body::after {
+      right: -110px;
+      bottom: 10%;
+      box-shadow: 0 0 0 18px rgba(165, 43, 56, .06), 0 0 0 36px rgba(165, 43, 56, .04);
+    }
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: var(--deep-maroon);
+      color: var(--light-gold);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-content {
+      text-align: center;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .loader-om {
+      font-family: var(--serif);
+      font-size: 4rem;
+      margin-bottom: 12px;
+    }
+
+    .loader p {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: .72rem;
+    }
+
+    .leaf-border {
+      height: 34px;
+      background:
+        radial-gradient(ellipse at center, var(--green) 0 38%, transparent 40%) 0 50% / 34px 24px repeat-x;
+      opacity: .9;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    nav {
+      position: fixed;
+      z-index: 1000;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 700px);
+      padding: 9px;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      border: 1px solid rgba(217, 164, 65, .35);
+      border-radius: 50px;
+      background: rgba(74, 13, 25, .9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .14);
+    }
+
+    nav a {
+      color: #fff3d5;
+      text-decoration: none;
+      font-size: .7rem;
+      letter-spacing: .5px;
+      padding: 8px 10px;
+      border-radius: 30px;
+      transition: background .3s ease, color .3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--gold);
+      color: var(--deep-maroon);
+    }
+
+    section {
+      position: relative;
+      padding: 88px 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(100%, 1060px);
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #fff8e8;
+      background:
+        linear-gradient(rgba(74, 13, 25, .74), rgba(74, 13, 25, .88)),
+        radial-gradient(circle at 50% 15%, rgba(217,164,65,.25), transparent 28%),
+        var(--maroon);
+    }
+
+    .hero::before {
+      content: "✦  ❈  ✦  ❈  ✦";
+      position: absolute;
+      top: 92px;
+      color: var(--light-gold);
+      font-size: 1.25rem;
+      letter-spacing: 12px;
+      opacity: .75;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(243, 209, 138, .33);
+      border-radius: 45% 45% 0 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 700px);
+      animation: fadeUp 1.3s ease .3s both;
+    }
+
+    .auspicious {
+      color: var(--light-gold);
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--light-gold);
+      font-size: .7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+    }
+
+    h1 {
+      color: #fff5d8;
+      font-size: clamp(3.2rem, 15vw, 7.5rem);
+      line-height: .98;
+      letter-spacing: -3px;
+    }
+
+    .ampersand {
+      display: block;
+      color: var(--light-gold);
+      font-size: .42em;
+      line-height: 1.2;
+      font-style: italic;
+      letter-spacing: 0;
+    }
+
+    .hero-date {
+      margin: 28px auto;
+      color: #fff1c8;
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 4vw, 1.5rem);
+    }
+
+    .scroll-hint {
+      display: inline-block;
+      margin-top: 25px;
+      color: var(--light-gold);
+      font-size: .75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: float 2.4s ease-in-out infinite;
+    }
+
+    .mandala {
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(243, 209, 138, .2);
+      border-radius: 50%;
+      opacity: .6;
+    }
+
+    .mandala::before,
+    .mandala::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px dashed rgba(243, 209, 138, .25);
+      border-radius: 50%;
+      transform: rotate(45deg);
+    }
+
+    .mandala::after {
+      inset: 48px;
+      transform: rotate(22deg);
+    }
+
+    .mandala-left {
+      left: -120px;
+      top: 28%;
+    }
+
+    .mandala-right {
+      right: -120px;
+      bottom: 15%;
+    }
+
+    .section-light {
+      background: rgba(255, 250, 240, .72);
+    }
+
+    .section-dark {
+      color: #fff7dd;
+      background:
+        linear-gradient(rgba(74, 13, 25, .96), rgba(74, 13, 25, .96)),
+        var(--maroon);
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--maroon);
+      font-size: clamp(2.1rem, 8vw, 3.6rem);
+      line-height: 1.1;
+    }
+
+    .section-dark .section-heading h2 {
+      color: var(--light-gold);
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+      color: var(--gold);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .intro-text {
+      max-width: 680px;
+      margin: auto;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+    }
+
+    .telugu {
+      color: var(--maroon);
+      font-family: "Noto Sans Telugu", "Nirmala UI", sans-serif;
+      font-size: 1.3rem;
+      margin: 16px 0;
+    }
+
+    .couple-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      max-width: 880px;
+      margin: auto;
+    }
+
+    .person-card {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid rgba(217, 164, 65, .42);
+      background: rgba(255, 250, 240, .72);
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+    }
+
+    .person-card h3 {
+      color: var(--maroon);
+      font-size: 2rem;
+      margin-top: 18px;
+    }
+
+    .person-card p {
+      color: #795c4c;
+      font-size: .9rem;
+      margin-top: 3px;
+    }
+
+    .photo-placeholder {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+      overflow: hidden;
+      color: var(--maroon);
+      background:
+        linear-gradient(135deg, rgba(217,164,65,.12), transparent 45%),
+        repeating-linear-gradient(45deg, rgba(165,43,56,.05) 0 1px, transparent 1px 11px),
+        #fff1d0;
+      border: 2px dashed var(--gold);
+      border-radius: 5px;
+    }
+
+    .photo-placeholder::before {
+      content: "✿";
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      color: var(--red);
+      font-size: 1.4rem;
+    }
+
+    .photo-placeholder::after {
+      content: "❧";
+      position: absolute;
+      right: 18px;
+      bottom: 10px;
+      color: var(--green);
+      font-size: 1.8rem;
+    }
+
+    .placeholder-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .placeholder-icon {
+      display: block;
+      font-size: 3.5rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .placeholder-content strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+    }
+
+    .placeholder-content small {
+      display: block;
+      margin-top: 8px;
+      color: #765b4d;
+      font-size: .76rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .detail-card {
+      position: relative;
+      padding: 28px 20px;
+      text-align: center;
+      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid rgba(217,164,65,.4);
+      box-shadow: var(--shadow);
+    }
+
+    .detail-icon {
+      display: block;
+      color: var(--red);
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+    }
+
+    .detail-card h3 {
+      color: var(--maroon);
+      font-size: 1.55rem;
+      margin-bottom: 5px;
+    }
+
+    .detail-card p {
+      color: #765b4d;
+      font-size: .9rem;
+    }
+
+    .venue-card {
+      max-width: 760px;
+      margin: 30px auto 0;
+      padding: 30px 20px;
+      text-align: center;
+      color: #fff5d8;
+      border: 1px solid rgba(243, 209, 138, .44);
+      background: rgba(255,255,255,.07);
+      border-radius: 8px;
+    }
+
+    .venue-card h3 {
+      color: var(--light-gold);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      color: var(--deep-maroon);
+      background: var(--light-gold);
+      font-weight: bold;
+      font-size: .86rem;
+      text-decoration: none;
+      transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    }
+
+    .button:hover,
+    .button:focus {
+      transform: translateY(-3px);
+      background: #fff1bf;
+      box-shadow: 0 12px 24px rgba(0,0,0,.2);
+    }
+
+    .button-outline {
+      color: var(--light-gold);
+      background: transparent;
+    }
+
+    .button-outline:hover,
+    .button-outline:focus {
+      color: var(--deep-maroon);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      min-height: 190px;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      min-height: 270px;
+    }
+
+    .gallery-item .photo-placeholder {
+      height: 100%;
+      min-height: inherit;
+    }
+
+    .blessings {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .blessing-line {
+      margin: 13px 0;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--light-gold);
+    }
+
+    .blessing-line span {
+      display: block;
+      color: #fff4d2;
+      font-family: var(--sans);
+      font-size: .82rem;
+      margin-top: 3px;
+    }
+
+    .countdown-wrap {
+      max-width: 860px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 600px;
+      margin: 28px auto 0;
+    }
+
+    .time-box {
+      padding: 18px 8px;
+      border-radius: 7px;
+      border: 1px solid rgba(217,164,65,.5);
+      background: var(--paper);
+      box-shadow: 0 9px 25px rgba(74,13,25,.1);
+    }
+
+    .time-box strong {
+      display: block;
+      color: var(--maroon);
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .time-box span {
+      display: block;
+      color: #806657;
+      margin-top: 6px;
+      font-size: .7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .countdown-message {
+      margin-top: 20px;
+      color: var(--maroon);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+    }
+
+    footer {
+      position: relative;
+      padding: 70px 20px 32px;
+      text-align: center;
+      color: #fff4d2;
+      background: var(--deep-maroon);
+    }
+
+    footer h2 {
+      color: var(--light-gold);
+      font-size: clamp(2.3rem, 9vw, 4.5rem);
+      line-height: 1;
+    }
+
+    footer p {
+      max-width: 600px;
+      margin: 18px auto;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+    }
+
+    .footer-note {
+      margin-top: 42px;
+      color: rgba(255,244,210,.65);
+      font-family: var(--sans);
+      font-size: .72rem;
+      letter-spacing: 1px;
+    }
+
+    .top-button {
+      position: fixed;
+      z-index: 900;
+      right: 16px;
+      bottom: 18px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--deep-maroon);
+      background: var(--light-gold);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease;
+    }
+
+    .top-button.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @media (min-width: 650px) {
+      section {
+        padding: 112px 28px;
+      }
+
+      .couple-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .countdown {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      nav a {
+        font-size: .78rem;
+        padding-inline: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated opening screen -->
+  <div class="loader" id="loader" aria-label="Loading wedding invitation">
+    <div class="loader-content">
+      <div class="loader-om">ॐ</div>
+      <p>With divine blessings</p>
+    </div>
+  </div>
+
+  <!-- Mobile-friendly navigation -->
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#couple">Couple</a>
+    <a href="#details">Details</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#blessings">Blessings</a>
+  </nav>
+
+  <main>
+    <!-- Opening section -->
+    <section class="hero" id="home">
+      <div class="mandala mandala-left"></div>
+      <div class="mandala mandala-right"></div>
+
+      <div class="hero-content">
+        <div class="auspicious">ॐ श्री गणेशाय नमः</div>
+        <div class="eyebrow">Together with their families</div>
+        <h1>
+          Sirisha
+          <span class="ampersand">weds</span>
+          Karthik
+        </h1>
+        <p class="hero-date">Sunday, 30 August 2026</p>
+        <div class="leaf-border"></div>
+        <a class="scroll-hint" href="#welcome">Scroll to open invitation ↓</a>
+      </div>
+    </section>
+
+    <!-- Auspicious greeting and invitation message -->
+    <section class="section-light" id="welcome">
+      <div class="container reveal">
+        <div class="section-heading">
+          <div class="eyebrow">A sacred beginning</div>
+          <h2>You are lovingly invited</h2>
+          <div class="ornament">✦</div>
+        </div>
+
+        <div class="intro-text">
+          <p class="telugu">శుభమస్తు</p>
+          <p>
+            With the blessings of the Almighty and our beloved elders,
+            we invite you to celebrate the sacred union of
+            <strong>Sirisha</strong> and <strong>Karthik</strong>.
+          </p>
+          <p style="margin-top: 18px;">
+            Your presence and blessings will make this auspicious occasion
+            even more beautiful and memorable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Couple introduction -->
+    <section id="couple">
+      <div class="container reveal">
+        <div class="section-heading">
+          <div class="eyebrow">Two hearts, one journey</div>
+          <h2>The Couple</h2>
+          <div class="ornament">❈</div>
+        </div>
+
+        <div class="couple-grid">
+          <article class="person-card">
+            <!-- =====================================================
+                 REPLACE BRIDE PHOTO:
+                 Replace the entire .photo-placeholder below with:
+                 <img src="bride.jpg" alt="Sirisha" class="real-photo">
+                 Keep bride.jpg in the same folder as index.html.
+                 ===================================================== -->
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">👰</span>
+                <strong>Bride's Photograph</strong>
+                <small>Replace this placeholder with Sirisha's photo</small>
+              </div>
+            </div>
+            <h3>Sirisha</h3>
+            <p>The bride</p>
+          </article>
+
+          <article class="person-card">
+            <!-- =====================================================
+                 REPLACE GROOM PHOTO:
+                 Replace the entire .photo-placeholder below with:
+                 <img src="groom.jpg" alt="Karthik" class="real-photo">
+                 Keep groom.jpg in the same folder as index.html.
+                 ===================================================== -->
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🤵</span>
+                <strong>Groom's Photograph</strong>
+                <small>Replace this placeholder with Karthik's photo</small>
+              </div>
+            </div>
+            <h3>Karthik</h3>
+            <p>The groom</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Date, time and venue -->
+    <section class="section-light" id="details">
+      <div class="container reveal">
+        <div class="section-heading">
+          <div class="eyebrow">Mark your calendar</div>
+          <h2>Wedding Details</h2>
+          <div class="ornament">✦</div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <span class="detail-icon">📅</span>
+            <h3>30 August 2026</h3>
+            <p>Sunday</p>
+          </div>
+
+          <div class="detail-card">
+            <span class="detail-icon">🪔</span>
+            <h3>10:15 PM</h3>
+            <p>Wedding ceremony begins</p>
+          </div>
+
+          <div class="detail-card">
+            <span class="detail-icon">⏳</span>
+            <h3>10:15 – 11:30 PM</h3>
+            <p>Wedding ceremony</p>
+          </div>
+        </div>
+
+        <div class="venue-card">
+          <h3>Sri Ramulavari Devasthanam</h3>
+          <p>Pajarla, Gudllur Mandal, Andhra Pradesh</p>
+
+          <!-- Opens the supplied location in Google Maps -->
+          <a
+            class="button"
+            href="https://www.google.com/maps/search/?api=1&query=17.416192,78.462976"
+            target="_blank"
+            rel="noopener"
+          >
+            View Location on Google Maps ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo gallery -->
+    <section id="gallery">
+      <div class="container reveal">
+        <div class="section-heading">
+          <div class="eyebrow">Memories to come</div>
+          <h2>Photo Gallery</h2>
+          <div class="ornament">❈</div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- =====================================================
+               REPLACE GALLERY PHOTOS:
+               Replace any .photo-placeholder with:
+               <img src="photo-name.jpg" alt="Description" class="real-photo">
+               Suggested filenames:
+               couple.jpg, engagement.jpg, family.jpg, ceremony.jpg
+               ===================================================== -->
+
+          <div class="gallery-item">
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">✿</span>
+                <strong>Couple Photograph</strong>
+                <small>Add couple.jpg here</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🌸</span>
+                <strong>Engagement</strong>
+                <small>Add engagement.jpg here</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">👪</span>
+                <strong>Family</strong>
+                <small>Add family.jpg here</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="photo-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🪷</span>
+                <strong>Celebration</strong>
+                <small>Add ceremony.jpg here</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family and blessings -->
+    <section class="section-dark" id="blessings">
+      <div class="container reveal">
+        <div class="section-heading">
+          <div class="eyebrow">With love and blessings</div>
+          <h2>Our Families</h2>
+          <div class="ornament">✦</div>
+        </div>
+
+        <div class="blessings">
+          <!-- =====================================================
+               OPTIONAL FAMILY PHOTOS:
+               Add family names or photographs in this section later.
+               ===================================================== -->
+
+          <p class="blessing-line">
+            “May this union be blessed with love, joy and prosperity.”
+            <span>With the blessings of our beloved parents and elders</span>
+          </p>
+
+          <p class="blessing-line">
+            मंगलम् भगवान् विष्णुः
+            <span>May auspiciousness and divine grace accompany the couple.</span>
+          </p>
+
+          <a class="button button-outline" href="#details">
+            See Wedding Details
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="section-light" id="countdown-section">
+      <div class="container reveal countdown-wrap">
+        <div class="section-heading">
+          <div class="eyebrow">The auspicious moment approaches</div>
+          <h2>Countdown to the Wedding</h2>
+          <div class="ornament">❈</div>
+        </div>
+
+        <div class="countdown" aria-live="polite">
+          <div class="time-box">
+            <strong id="days">--</strong>
+            <span>Days</span>
+          </div>
+          <div class="time-box">
+            <strong id="hours">--</strong>
+            <span>Hours</span>
+          </div>
+          <div class="time-box">
+            <strong id="minutes">--</strong>
+            <span>Minutes</span>
+          </div>
+          <div class="time-box">
+            <strong id="seconds">--</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+
+        <p class="countdown-message" id="countdownMessage">
+          We cannot wait to celebrate with you.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Closing invitation -->
+  <footer>
+    <div class="leaf-border"></div>
+    <h2>With love,<br />Sirisha &amp; Karthik</h2>
+    <p>
+      Please join us as we begin this beautiful new chapter together.
+      Your presence will be our greatest blessing.
+    </p>
+    <div class="auspicious">శుభమస్తు • मंगलम्</div>
+    <div class="footer-note">30 · 08 · 2026 | Andhra Pradesh</div>
+  </footer>
+
+  <button class="top-button" id="topButton" aria-label="Back to top">↑</button>
+
+  <style>
+    /* Photo style used after replacing placeholders with images */
+    .real-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: block;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  </style>
+
+  <script>
+    // Hide animated opening screen after the page loads.
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("loader").classList.add("hidden");
+      }, 850);
+    });
+
+    // Reveal sections smoothly as they enter the screen.
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+
+    // Wedding countdown.
+    // The time is interpreted as India Standard Time.
+    const weddingDate = new Date("2026-08-30T22:15:00+05:30").getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const difference = weddingDate - now;
+
+      const daysElement = document.getElementById("days");
+      const hoursElement = document.getElementById("hours");
+      const minutesElement = document.getElementById("minutes");
+      const secondsElement = document.getElementById("seconds");
+      const messageElement = document.getElementById("countdownMessage");
+
+      if (difference <= 0) {
+        daysElement.textContent = "♥";
+        hoursElement.textContent = "♥";
+        minutesElement.textContent = "♥";
+        secondsElement.textContent = "♥";
+        messageElement.textContent =
+          "The auspicious wedding time has arrived. मंगलम्!";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+      const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
+      const seconds = Math.floor(
+        (difference / 1000) % 60
+      );
+
+      daysElement.textContent = String(days).padStart(2, "0");
+      hoursElement.textContent = String(hours).padStart(2, "0");
+      minutesElement.textContent = String(minutes).padStart(2, "0");
+      secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Show or hide back-to-top button.
+    const topButton = document.getElementById("topButton");
+
+    window.addEventListener("scroll", function () {
+      topButton.classList.toggle("show", window.scrollY > 500);
+    });
+
+    topButton.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
